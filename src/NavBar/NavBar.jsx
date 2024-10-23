@@ -2,15 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
-import { useSelector } from "react-redux";
+
 const NavBar = () => {
-  //  getting data inside cards something like that 
-  // const {cart} = useSelector((state) => state.allCart);
-  console.log("header useSelector", cart);
+  
+  
   return (
     <div className="bg-black text-white flex justify-between items-center p-3">
       <div className="ml-4">
-        <h1 className="text-2xl">Store-sellers.com</h1>
+        <h1 className="text-2xl">Food-Kart</h1>
       </div>
 
       <div className="flex items-center mr-4 gap-4">

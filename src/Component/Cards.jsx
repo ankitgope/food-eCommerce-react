@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const MenuCard = ({
   dish,
@@ -8,6 +9,10 @@ const MenuCard = ({
   price,
   onAddToCart,
 }) => {
+  //  getting data inside cards something like that (Redux pourpouse)
+  const carts = useSelector(store => store.allCart.items);
+  console.log(carts);
+
   const [isExpanding, setIsExpanding] = useState(false);
   // using this below line as if the character is below 90 word the red more will not apprear
   const longDescription = description.length > 90;
@@ -16,7 +21,7 @@ const MenuCard = ({
     : `${description.slice(0, 90)}...`;
   const toggleButton = () => setIsExpanding(!isExpanding);
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105 hover:shadow-2xl border-l-black ">
+    <div className="max-w-xs rounded overflow-hidden shadow-lg bg-slate-200 transform transition duration-300 hover:scale-105 hover:shadow-2xl border-l-black ">
       {/* Food Image */}
       <img
         className="w-full h-48 object-cover p-3 rounded-lg"

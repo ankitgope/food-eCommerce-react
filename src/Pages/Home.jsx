@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 const Home = () => {
   const dispatch = useDispatch();
   // add to cart
-  // just passing the data throught dispatch rest workin will in slice
+  // just passing the data which card sill be clicked  throught dispatch rest workin will in slice
+  // below function is used in onclick 
   const handelClick = (itemsPassedToCart) => {
     dispatch(addToCart(itemsPassedToCart));
     console.log("button clicked");
@@ -14,9 +15,9 @@ const Home = () => {
   };
 
   return (
-    <div className="p-6 bg-slate-600">
-      <h1>Home here</h1>
-      <div className="grid grid-cols-4 gap-4 bg-yellow-400">
+    <div className="p-6 ">
+      <h1 className="text-6xl p-1 mb-2">Find  your favourite food </h1>
+      <div className="grid grid-cols-4 gap-4 ">
         {Cardsdata.map((data, id) => (
           <MenuCard
             key={id}

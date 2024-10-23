@@ -1,32 +1,48 @@
 import React from "react";
-import { Button, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from "@mui/material";
+import {
+  Button,
+  IconButton,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Typography,
+} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { useSelector } from "react-redux";
 
-const CartDetailsCard = ({ handleIncrement, handleDecrement, handleRemove, handleEmptyCart, totalAmount }) => {
-  // Sample cart item data
-  const {cart} = useSelector((state) => state.allCart);
-  
-
+const CartDetailsCard = ({
+  handleIncrement,
+  handleDecrement,
+  handleRemove,
+  handleEmptyCart,
+  totalAmount,
+}) => {
   return (
-    <div className="p-6"> {/* Tailwind padding class */}
-      <Typography variant="h4" className="font-bold mb-4"> {/* Tailwind margin-bottom */}
+    <div className="p-6">
+      {" "}
+      {/* Tailwind padding class */}
+      <Typography variant="h4" className="font-bold mb-4">
+        {" "}
+        {/* Tailwind margin-bottom */}
         Cart Calculation
       </Typography>
-
       <Button
         variant="contained"
         color="secondary"
         className="mb-4"
         onClick={handleEmptyCart}
-        disabled={cart.length === 0}
+        //disabled={cart.length === 0}
       >
         Empty Cart
       </Button>
-
-      <TableContainer component={Paper} className="shadow-lg"> {/* Tailwind for shadow */}
+      <TableContainer component={Paper} className="shadow-lg">
+        {" "}
+        {/* Tailwind for shadow */}
         <Table>
           <TableHead>
             <TableRow>
@@ -44,18 +60,27 @@ const CartDetailsCard = ({ handleIncrement, handleDecrement, handleRemove, handl
               <TableCell>$10</TableCell>
               <TableCell>
                 <div className="flex items-center">
-                  <IconButton size="small" onClick={() => handleDecrement({ id: 1 })}>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleDecrement({ id: 1 })}
+                  >
                     <RemoveIcon />
                   </IconButton>
                   <span className="mx-2">2</span> {/* Hardcoded quantity */}
-                  <IconButton size="small" onClick={() => handleIncrement({ id: 1 })}>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleIncrement({ id: 1 })}
+                  >
                     <AddIcon />
                   </IconButton>
                 </div>
               </TableCell>
               <TableCell>$20</TableCell> {/* Hardcoded total for 2 Burgers */}
               <TableCell>
-                <IconButton color="secondary" onClick={() => handleRemove({ id: 1 })}>
+                <IconButton
+                  color="secondary"
+                  onClick={() => handleRemove({ id: 1 })}
+                >
                   <DeleteIcon />
                 </IconButton>
               </TableCell>
@@ -65,18 +90,27 @@ const CartDetailsCard = ({ handleIncrement, handleDecrement, handleRemove, handl
               <TableCell>$15</TableCell>
               <TableCell>
                 <div className="flex items-center">
-                  <IconButton size="small" onClick={() => handleDecrement({ id: 2 })}>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleDecrement({ id: 2 })}
+                  >
                     <RemoveIcon />
                   </IconButton>
                   <span className="mx-2">1</span> {/* Hardcoded quantity */}
-                  <IconButton size="small" onClick={() => handleIncrement({ id: 2 })}>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleIncrement({ id: 2 })}
+                  >
                     <AddIcon />
                   </IconButton>
                 </div>
               </TableCell>
               <TableCell>$15</TableCell> {/* Hardcoded total for 1 Pizza */}
               <TableCell>
-                <IconButton color="secondary" onClick={() => handleRemove({ id: 2 })}>
+                <IconButton
+                  color="secondary"
+                  onClick={() => handleRemove({ id: 2 })}
+                >
                   <DeleteIcon />
                 </IconButton>
               </TableCell>
@@ -84,8 +118,9 @@ const CartDetailsCard = ({ handleIncrement, handleDecrement, handleRemove, handl
           </TableBody>
         </Table>
       </TableContainer>
-
-      <Typography variant="h6" className="mt-4"> {/* Tailwind margin-top */}
+      <Typography variant="h6" className="mt-4">
+        {" "}
+        {/* Tailwind margin-top */}
         Total Amount: ${totalAmount}
       </Typography>
     </div>
